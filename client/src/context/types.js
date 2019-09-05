@@ -1,0 +1,9 @@
+export const FETCH_FOODS = 'FETCH_FOODS';
+export const FILTER_FOODS = 'FILTER_FOODS';
+export const ADD_FOOD = 'ADD_FOOD';
+export const DELETE_FOOD = 'DELETE_FOOD';
+export const FOOD_ERROR = 'FOOD_ERROR';
+export const CLEAR_FILTER = 'CLEAR_FILTER';
+export const SET_LOADING = 'SET_LOADING';
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';
