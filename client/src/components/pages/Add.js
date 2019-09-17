@@ -24,7 +24,7 @@ const Add = () => {
     if (foodName === '' || foodDetails === '' || edible === null) {
       setAlert('Please fill in all fields', 'danger');
     } else {
-      console.log(food);
+      setAlert(`${food.foodName} was added successfully.`, 'success');
       addFood(food);
       setFood({
         foodName: '',

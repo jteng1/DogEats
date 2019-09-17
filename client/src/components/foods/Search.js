@@ -5,7 +5,13 @@ const Search = () => {
   const foodContext = useContext(FoodContext);
   const text = useRef('');
 
-  const { filterFoods, clearFilter, filtered, numberOfItems } = foodContext;
+  const {
+    filterFoods,
+    clearFilter,
+    clearCurrent,
+    filtered,
+    numberOfItems
+  } = foodContext;
 
   useEffect(() => {
     if (filtered === null) {
@@ -18,12 +24,14 @@ const Search = () => {
       filterFoods(e.target.value);
     } else {
       clearFilter();
+      clearCurrent();
     }
   };
 
   const handleClick = e => {
     e.preventDefault();
     clearFilter();
+    clearCurrent();
   };
 
   return (

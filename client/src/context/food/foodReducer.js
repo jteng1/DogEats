@@ -5,7 +5,9 @@ import {
   ADD_FOOD,
   DELETE_FOOD,
   FOOD_ERROR,
-  FILTER_FOODS
+  FILTER_FOODS,
+  SET_CURRENT,
+  CLEAR_CURRENT
 } from '../types';
 
 export default (state, action) => {
@@ -42,6 +44,16 @@ export default (state, action) => {
       return {
         ...state,
         error: action.payload
+      };
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: action.payload
+      };
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null
       };
     case CLEAR_FILTER:
       return {

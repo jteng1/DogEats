@@ -5,6 +5,7 @@ import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Add from './components/pages/Add';
+import Edit from './components/pages/Edit';
 import NotFound from './components/pages/NotFound';
 import Alerts from './components/layout/Alerts';
 
@@ -26,6 +27,7 @@ function App() {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/about' component={About} />
                 <Route exact path='/add' component={Add} />
+                <Route exact path='/edit' component={Edit} />
                 <Route component={NotFound} />
               </Switch>
             </div>

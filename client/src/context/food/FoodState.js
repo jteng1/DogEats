@@ -9,13 +9,16 @@ import {
   SET_LOADING,
   ADD_FOOD,
   DELETE_FOOD,
-  FOOD_ERROR
+  FOOD_ERROR,
+  SET_CURRENT,
+  CLEAR_CURRENT
 } from '../types';
 
 const FoodState = props => {
   const initialState = {
     foods: [],
     food: {},
+    current: null,
     numberOfItems: null,
     filtered: null,
     loading: false
@@ -73,6 +76,12 @@ const FoodState = props => {
     }
   };
 
+  // Set Current
+  const setCurrent = food => dispatch({ type: SET_CURRENT, payload: food });
+
+  // Clear Current
+  const clearCurrent = () => dispatch({ type: CLEAR_CURRENT });
+
   // Clear Foods
   const clearFilter = () => dispatch({ type: CLEAR_FILTER });
 
@@ -86,10 +95,13 @@ const FoodState = props => {
         food: state.food,
         numberOfItems: state.numberOfItems,
         filtered: state.filtered,
+        current: state.current,
         loading: state.loading,
         fetchFoods,
         filterFoods,
         clearFilter,
+        setCurrent,
+        clearCurrent,
         addFood,
         deleteFood,
         setLoading

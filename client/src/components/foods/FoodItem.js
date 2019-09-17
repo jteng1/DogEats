@@ -1,10 +1,16 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+import AlertContext from '../../context/alert/alertContext';
 import FoodContext from '../../context/food/foodContext';
 
 const FoodItem = ({ food }) => {
+  const alertContext = useContext(AlertContext);
   const foodContext = useContext(FoodContext);
-  const { deleteFood } = foodContext;
+
+  const { setAlert } = alertContext;
+  const { deleteFood, setCurrent } = foodContext;
 
   const { _id, foodName, edible, edibleDetails, foodDetails } = food;
 
@@ -12,6 +18,11 @@ const FoodItem = ({ food }) => {
 
   const onDelete = () => {
     deleteFood(_id);
+    setAlert(`${foodName} deleted successfully`, 'success');
+  };
+  const onEdit = () => {
+    console.log(food);
+    setCurrent(food);
   };
 
   switch (edible) {
@@ -43,6 +54,11 @@ const FoodItem = ({ food }) => {
       <button className='btn btn-danger btn-sm' onClick={onDelete}>
         Delete
       </button>
+      <Link to='/edit'>
+        <button className='btn btn-light btn-sm' onClick={onEdit}>
+          Edit
+        </button>
+      </Link>
     </div>
   );
 };
