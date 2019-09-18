@@ -196,6 +196,7 @@ img {
   grid-gap: 1rem;
 }
 
+/* Buttons */
 .btn {
   display: inline-block;
   background: var(--light-color);
@@ -411,4 +412,10 @@ table th {
     text-align: center;
     justify-content: center;
   }
+}
+
+/* Specifics */
+
+textarea {
+  resize: none;
 }

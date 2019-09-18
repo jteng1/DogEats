@@ -92,7 +92,9 @@ const Add = () => {
         </div>
         <div className='form-group'>
           <label htmlFor='foodDetails'>Food Details</label>
-          <input
+          <textarea
+            rows='3'
+            cols='25'
             type='text'
             placeholder='Information about the food...'
             name='foodDetails'

@@ -21,7 +21,6 @@ const FoodItem = ({ food }) => {
     setAlert(`${foodName} deleted successfully`, 'success');
   };
   const onEdit = () => {
-    console.log(food);
     setCurrent(food);
   };
 

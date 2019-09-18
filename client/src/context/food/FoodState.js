@@ -8,6 +8,7 @@ import {
   CLEAR_FILTER,
   SET_LOADING,
   ADD_FOOD,
+  EDIT_FOOD,
   DELETE_FOOD,
   FOOD_ERROR,
   SET_CURRENT,
@@ -64,6 +65,28 @@ const FoodState = props => {
     }
   };
 
+  // Edit a Food
+  const editFood = async food => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.put(
+        `http://localhost:5000/api/foods/${food._id}`,
+        food,
+        config
+      );
+
+      dispatch({ type: EDIT_FOOD, payload: res.data });
+      console.log(res.data);
+    } catch (err) {
+      dispatch({ type: FOOD_ERROR, payload: err.response.msg });
+    }
+  };
+
   // Delete a Food
   const deleteFood = async id => {
     try {
@@ -103,6 +126,7 @@ const FoodState = props => {
         setCurrent,
         clearCurrent,
         addFood,
+        editFood,
         deleteFood,
         setLoading
       }}

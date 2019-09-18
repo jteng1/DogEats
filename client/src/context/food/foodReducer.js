@@ -3,6 +3,7 @@ import {
   SET_LOADING,
   CLEAR_FILTER,
   ADD_FOOD,
+  EDIT_FOOD,
   DELETE_FOOD,
   FOOD_ERROR,
   FILTER_FOODS,
@@ -17,6 +18,7 @@ export default (state, action) => {
         ...state,
         foods: action.payload,
         numberOfItems: action.payload.length,
+        filtered: null,
         loading: false
       };
     case FILTER_FOODS:
@@ -31,6 +33,16 @@ export default (state, action) => {
       return {
         ...state,
         foods: [...state.foods, action.payload],
+        numberOfItems: state.numberOfItems + 1,
+        loading: false
+      };
+    case EDIT_FOOD:
+      return {
+        ...state,
+        foods: state.foods.map(food =>
+          food._id === action.payload._id ? action.payload : food
+        ),
+        filtered: null,
         loading: false
       };
     case DELETE_FOOD:
