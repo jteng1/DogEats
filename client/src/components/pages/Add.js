@@ -2,7 +2,7 @@ import React, { Fragment, useState, useContext } from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import FoodContext from '../../context/food/foodContext';
 
-const Add = () => {
+const Add = props => {
   const alertContext = useContext(AlertContext);
   const foodContext = useContext(FoodContext);
 
@@ -26,6 +26,7 @@ const Add = () => {
     } else {
       setAlert(`${food.foodName} was added successfully.`, 'success');
       addFood(food);
+      props.history.push('/');
       setFood({
         foodName: '',
         edible: 0,

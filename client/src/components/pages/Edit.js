@@ -3,7 +3,7 @@ import React, { Fragment, useState, useContext, useEffect } from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import FoodContext from '../../context/food/foodContext';
 
-const Edit = () => {
+const Edit = props => {
   const alertContext = useContext(AlertContext);
   const foodContext = useContext(FoodContext);
 
@@ -42,6 +42,7 @@ const Edit = () => {
       setAlert(`${food.foodName} was edited successfully.`, 'success');
       editFood(food);
       clearCurrent();
+      props.history.push('/');
       setFood({
         foodName: '',
         edible: 0,
