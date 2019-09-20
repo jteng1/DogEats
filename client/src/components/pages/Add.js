@@ -51,6 +51,7 @@ const Add = props => {
             name='foodName'
             value={foodName}
             onChange={onChange}
+            autoFocus
           />
         </div>
         <div className='form-group'>

@@ -111,9 +111,7 @@ img {
 
 /* Cards */
 .card {
-  padding: 1rem;
-  border: #ccc 1px dotted;
-  margin: 0.7rem 0;
+  border: #f4f4f4 0.1rem solid;
 }
 
 /* List */
@@ -206,6 +204,7 @@ img {
   border: none;
   cursor: pointer;
   margin-right: 0.5rem;
+  margin-bottom: 1rem;
   transition: opacity 0.2s ease-in;
   outline: none;
 }
@@ -365,7 +364,6 @@ table th {
 
 .navbar a {
   color: #fff;
-  padding: 0.45rem;
   margin: 0 0.25rem;
 }
 

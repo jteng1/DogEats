@@ -42,6 +42,7 @@ const Search = () => {
         type='text'
         placeholder='Search foods...'
         onChange={onChange}
+        autoFocus
       />
       <button className='btn btn-light btn-block' onClick={handleClick}>
         Clear

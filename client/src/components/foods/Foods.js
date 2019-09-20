@@ -30,9 +30,11 @@ const Foods = () => {
 };
 
 const userStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem'
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column'
+  // gridTemplateColumns: 'repeat(3, 1fr)',
+  // gridGap: '1rem'
 };
 
 export default Foods;

@@ -20,7 +20,7 @@ const FoodItem = ({ food }) => {
     deleteFood(_id);
     setAlert(`${foodName} deleted successfully`, 'success');
   };
-  const onEdit = () => {
+  const makeCurrent = () => {
     setCurrent(food);
   };
 
@@ -47,8 +47,12 @@ const FoodItem = ({ food }) => {
   }
   return (
     <div style={bgStyle} className='card text-center'>
-      <h1>{foodName}</h1>
-      <p>{edibleDetails}</p>
+      <Link to='/edit'>
+        <h2 className='text-dark' onClick={makeCurrent}>
+          {foodName}
+        </h2>
+      </Link>
+      {/* <p>{edibleDetails}</p>
       <p>{foodDetails}</p>
       <button className='btn btn-danger btn-sm' onClick={onDelete}>
         Delete
@@ -57,7 +61,7 @@ const FoodItem = ({ food }) => {
         <button className='btn btn-light btn-sm' onClick={onEdit}>
           Edit
         </button>
-      </Link>
+      </Link> */}
     </div>
   );
 };
