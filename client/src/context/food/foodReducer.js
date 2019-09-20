@@ -32,25 +32,20 @@ export default (state, action) => {
     case ADD_FOOD:
       return {
         ...state,
-        foods: [...state.foods, action.payload],
         numberOfItems: state.numberOfItems + 1,
-        loading: false
+        loading: true
       };
     case EDIT_FOOD:
       return {
         ...state,
-        foods: state.foods.map(food =>
-          food._id === action.payload._id ? action.payload : food
-        ),
         filtered: null,
-        loading: false
+        loading: true
       };
     case DELETE_FOOD:
       return {
         ...state,
-        foods: state.foods.filter(food => food._id !== action.payload),
         numberOfItems: state.numberOfItems - 1,
-        loading: false
+        loading: true
       };
     case FOOD_ERROR:
       return {
@@ -60,6 +55,7 @@ export default (state, action) => {
     case SET_CURRENT:
       return {
         ...state,
+        foods: [],
         current: action.payload
       };
     case CLEAR_CURRENT:

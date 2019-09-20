@@ -124,7 +124,7 @@ const Edit = props => {
               />
             </div>
             <div className='form-group'>
-              <label htmlFor='imgUrl'>Add an image link</label>
+              <label htmlFor='imgUrl'>Add an image link (Optional)</label>
               <input
                 type='text'
                 placeholder='Image URL'

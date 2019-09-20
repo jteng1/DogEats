@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import AlertContext from '../../context/alert/alertContext';
 import FoodContext from '../../context/food/foodContext';
@@ -8,7 +9,7 @@ const Current = props => {
   const foodContext = useContext(FoodContext);
 
   const { setAlert } = alertContext;
-  const { editFood, clearCurrent, current } = foodContext;
+  const { deleteFood, current } = foodContext;
 
   const [food, setFood] = useState({
     foodName: '',
@@ -18,7 +19,7 @@ const Current = props => {
     imgUrl: ''
   });
 
-  const { foodName, edible, edibleDetails, foodDetails, imgUrl } = food;
+  const { _id, foodName, edible, edibleDetails, foodDetails, imgUrl } = food;
 
   useEffect(() => {
     if (current !== null) {
@@ -34,26 +35,15 @@ const Current = props => {
     }
   }, [foodContext, current]);
 
-  const onSubmit = e => {
-    e.preventDefault();
-    if (foodName === '' || foodDetails === '' || edible === '') {
-      setAlert('Please fill in all fields', 'danger');
-    } else {
-      setAlert(`${food.foodName} was edited successfully.`, 'success');
-      editFood(food);
-      clearCurrent();
-      props.history.push('/');
-      setFood({
-        foodName: '',
-        edible: 0,
-        edibleDetails: '',
-        foodDetails: '',
-        imgUrl: ''
-      });
-    }
+  const onDelete = () => {
+    props.history.goBack();
+    deleteFood(_id);
+    setAlert(`${foodName} deleted successfully`, 'success');
   };
 
-  const onChange = e => setFood({ ...food, [e.target.name]: e.target.value });
+  const handleClick = e => {
+    props.history.goBack();
+  };
 
   return (
     <Fragment>
@@ -61,7 +51,16 @@ const Current = props => {
         <h2>No food selected</h2>
       ) : (
         <Fragment>
-          <h1>{foodName} is selected</h1>
+          <button className='btn btn-light btn-block' onClick={handleClick}>
+            Go Back
+          </button>
+          <h2 className='text-primary'>{foodName}</h2>
+          <button className='btn btn-danger btn-sm' onClick={onDelete}>
+            Delete
+          </button>
+          <Link to='/edit'>
+            <button className='btn btn-light btn-sm'>Edit</button>
+          </Link>
         </Fragment>
       )}
     </Fragment>

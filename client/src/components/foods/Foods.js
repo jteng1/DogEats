@@ -12,10 +12,12 @@ const Foods = () => {
     filtered,
     loading,
     setLoading,
-    clearFilter
+    clearFilter,
+    clearCurrent
   } = foodContext;
 
   useEffect(() => {
+    clearCurrent();
     clearFilter();
     setLoading();
     fetchFoods();
