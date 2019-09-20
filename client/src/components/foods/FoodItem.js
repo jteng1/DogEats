@@ -47,7 +47,7 @@ const FoodItem = ({ food }) => {
   }
   return (
     <div style={bgStyle} className='card text-center'>
-      <Link to='/edit'>
+      <Link to='/current'>
         <h2 className='text-dark' onClick={makeCurrent}>
           {foodName}
         </h2>

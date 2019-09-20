@@ -35,7 +35,7 @@ const Search = () => {
   };
 
   return (
-    <form>
+    <div>
       <h1 className='text-primary'>Number of Items: {numberOfItems}</h1>
       <input
         ref={text}
@@ -47,7 +47,7 @@ const Search = () => {
       <button className='btn btn-light btn-block' onClick={handleClick}>
         Clear
       </button>
-    </form>
+    </div>
   );
 };
 
