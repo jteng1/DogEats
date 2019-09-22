@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./db');
+const cors = require('cors');
 
 // Load env
 dotenv.config({ path: './config.env' });
@@ -12,15 +13,7 @@ connectDB();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
-
-// CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
-app.all('*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+app.use(cors());
 
 // Define Routes
 app.use('/api/auth', require('./routes/auth'));

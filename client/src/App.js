@@ -9,8 +9,13 @@ import Edit from './components/pages/Edit';
 import Current from './components/pages/Current';
 import NotFound from './components/pages/NotFound';
 import Alerts from './components/layout/Alerts';
+import PrivateRoute from './components/routing/PrivateRoute';
+
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
 
 import AlertState from './context/alert/AlertState';
+import AuthState from './context/auth/AuthState';
 import FoodState from './context/food/FoodState';
 import setAuthToken from './utils/setAuthToken';
 
@@ -22,26 +27,30 @@ if (localStorage.token) {
 
 function App() {
   return (
-    <FoodState>
-      <AlertState>
-        <Router>
-          <div className='App'>
-            <Navbar />
-            <div className='container'>
-              <Alerts />
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/about' component={About} />
-                <Route exact path='/add' component={Add} />
-                <Route exact path='/edit' component={Edit} />
-                <Route exact path='/current' component={Current} />
-                <Route component={NotFound} />
-              </Switch>
+    <AuthState>
+      <FoodState>
+        <AlertState>
+          <Router>
+            <div className='App'>
+              <Navbar />
+              <div className='container'>
+                <Alerts />
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='/register' component={Register} />
+                  <Route exact path='/login' component={Login} />
+                  <Route exact path='/about' component={About} />
+                  <PrivateRoute exact path='/add' component={Add} />
+                  <PrivateRoute exact path='/edit' component={Edit} />
+                  <Route exact path='/current' component={Current} />
+                  <Route component={NotFound} />
+                </Switch>
+              </div>
             </div>
-          </div>
-        </Router>
-      </AlertState>
-    </FoodState>
+          </Router>
+        </AlertState>
+      </FoodState>
+    </AuthState>
   );
 }
 
