@@ -1,9 +1,14 @@
 import React, { useContext, useRef, useEffect } from 'react';
+
+import AuthContext from '../../context/auth/authContext';
 import FoodContext from '../../context/food/foodContext';
 
 const Search = () => {
+  const authContext = useContext(AuthContext);
   const foodContext = useContext(FoodContext);
   const text = useRef('');
+
+  const { admin } = authContext;
 
   const {
     filterFoods,
@@ -36,11 +41,15 @@ const Search = () => {
 
   return (
     <div>
-      <h1 className='text-primary'>Number of Items: {numberOfItems}</h1>
+      {!admin ? (
+        <h2 className='large text-center'>Can my dog eat</h2>
+      ) : (
+        <h3>Number of Items: {numberOfItems}</h3>
+      )}
       <input
         ref={text}
         type='text'
-        placeholder='Search foods...'
+        placeholder='Search food...'
         onChange={onChange}
         autoFocus
       />

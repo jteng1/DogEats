@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #41c5c5;
+  --primary-color: #3754b4;
   --dark-color: #333333;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -111,8 +111,9 @@ img {
 
 /* Cards */
 .card {
-  display: inline;
-  border: #f4f4f4 0.1rem solid;
+  padding: 0.5rem;
+  background-color: #f2f2f2;
+  border: #e0e0de 0.1rem solid;
 }
 
 /* List */

@@ -20,17 +20,25 @@ const FoodItem = ({ food }) => {
   switch (edible) {
     case 0:
       edibleIcon = (
-        <i style={{ color: 'red' }} className='fas fa-skull-crossbones' />
+        <i
+          style={{ color: '#cc2121' }}
+          className='fas fa-skull-crossbones x-large'
+        />
       );
       break;
     case 1:
-      edibleIcon = <i style={{ color: 'green' }} className='fas fa-check' />;
+      edibleIcon = (
+        <i
+          style={{ color: '#45e630' }}
+          className='fas fa-check-circle x-large'
+        />
+      );
       break;
     case 2:
       edibleIcon = (
         <i
-          style={{ color: 'yellow' }}
-          className='fas fa-exclamation-triangle'
+          style={{ color: '#e6cd12' }}
+          className='fas fa-exclamation-triangle x-large'
         />
       );
       break;
@@ -38,13 +46,12 @@ const FoodItem = ({ food }) => {
       edibleIcon = <i className='fas fa-question' />;
   }
   return (
-    <div style={{ backgroundColor: '#f4f4f4' }} className='card text-center'>
-      <Link to='/current'>
-        <h2 className='text-dark' onClick={makeCurrent}>
-          {foodName} <span>{edibleIcon}</span>
-        </h2>
-      </Link>
-    </div>
+    <Link to='/current'>
+      <div className='card text-center' onClick={makeCurrent}>
+        {edibleIcon}
+        <h3 className='text-dark'>{foodName}</h3>
+      </div>
+    </Link>
   );
 };
 

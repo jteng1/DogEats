@@ -68,7 +68,10 @@ const Current = props => {
           <button className='btn btn-light btn-block' onClick={handleClick}>
             Go Back
           </button>
-          <h2 className='text-primary'>{foodName}</h2>
+          <div className='card text-center'>
+            <h1 className='text-primary text-center'>{foodName}</h1>
+          </div>
+
           {admin ? adminButtons : ''}
         </Fragment>
       )}
