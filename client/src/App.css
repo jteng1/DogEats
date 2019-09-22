@@ -111,6 +111,7 @@ img {
 
 /* Cards */
 .card {
+  display: inline;
   border: #f4f4f4 0.1rem solid;
 }
 

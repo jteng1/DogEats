@@ -11,7 +11,7 @@ const FoodItem = ({ food }) => {
 
   const { foodName, edible } = food;
 
-  let bgStyle;
+  let edibleIcon;
 
   const makeCurrent = () => {
     setCurrent(food);
@@ -19,30 +19,29 @@ const FoodItem = ({ food }) => {
 
   switch (edible) {
     case 0:
-      bgStyle = {
-        backgroundColor: '#dc3545'
-      };
+      edibleIcon = (
+        <i style={{ color: 'red' }} className='fas fa-skull-crossbones' />
+      );
       break;
     case 1:
-      bgStyle = {
-        backgroundColor: '#28a745'
-      };
+      edibleIcon = <i style={{ color: 'green' }} className='fas fa-check' />;
       break;
     case 2:
-      bgStyle = {
-        backgroundColor: '#ebeb34'
-      };
+      edibleIcon = (
+        <i
+          style={{ color: 'yellow' }}
+          className='fas fa-exclamation-triangle'
+        />
+      );
       break;
     default:
-      bgStyle = {
-        backgroundColor: '#fff'
-      };
+      edibleIcon = <i className='fas fa-question' />;
   }
   return (
-    <div style={bgStyle} className='card text-center'>
+    <div style={{ backgroundColor: '#f4f4f4' }} className='card text-center'>
       <Link to='/current'>
         <h2 className='text-dark' onClick={makeCurrent}>
-          {foodName}
+          {foodName} <span>{edibleIcon}</span>
         </h2>
       </Link>
     </div>

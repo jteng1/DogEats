@@ -1,13 +1,16 @@
 import React, { Fragment, useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
 import FoodContext from '../../context/food/foodContext';
 
 const Current = props => {
+  const authContext = useContext(AuthContext);
   const alertContext = useContext(AlertContext);
   const foodContext = useContext(FoodContext);
 
+  const { admin } = authContext;
   const { setAlert } = alertContext;
   const { deleteFood, current } = foodContext;
 
@@ -36,14 +39,25 @@ const Current = props => {
   }, [foodContext, current]);
 
   const onDelete = () => {
-    props.history.goBack();
+    props.history.push('/');
     deleteFood(_id);
     setAlert(`${foodName} deleted successfully`, 'success');
   };
 
   const handleClick = e => {
-    props.history.goBack();
+    props.history.push('/');
   };
+
+  const adminButtons = (
+    <Fragment>
+      <button className='btn btn-danger btn-sm' onClick={onDelete}>
+        Delete
+      </button>
+      <Link to='/edit'>
+        <button className='btn btn-light btn-sm'>Edit</button>
+      </Link>
+    </Fragment>
+  );
 
   return (
     <Fragment>
@@ -55,12 +69,7 @@ const Current = props => {
             Go Back
           </button>
           <h2 className='text-primary'>{foodName}</h2>
-          <button className='btn btn-danger btn-sm' onClick={onDelete}>
-            Delete
-          </button>
-          <Link to='/edit'>
-            <button className='btn btn-light btn-sm'>Edit</button>
-          </Link>
+          {admin ? adminButtons : ''}
         </Fragment>
       )}
     </Fragment>

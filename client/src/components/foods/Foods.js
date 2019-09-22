@@ -29,8 +29,8 @@ const Foods = () => {
       {!loading ? (
         <Fragment>
           {filtered !== null
-            ? filtered.map(food => <FoodItem food={food} />)
-            : foods.map(food => <FoodItem food={food} />)}
+            ? filtered.map(food => <FoodItem key={food._id} food={food} />)
+            : foods.map(food => <FoodItem key={food._id} food={food} />)}
         </Fragment>
       ) : (
         <Spinner />
