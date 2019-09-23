@@ -33,7 +33,6 @@ const FoodState = props => {
       const res = await axios.get('http://localhost:5000/api/foods/');
 
       dispatch({ type: FETCH_FOODS, payload: res.data });
-      console.log('Fetched data from server');
     } catch (err) {
       console.log(err);
     }

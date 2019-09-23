@@ -98,6 +98,10 @@ img {
   text-align: left;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 /* Center All */
 .all-center {
   display: flex;
@@ -111,9 +115,25 @@ img {
 
 /* Cards */
 .card {
-  padding: 0.5rem;
-  background-color: #f2f2f2;
-  border: #e0e0de 0.1rem solid;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background-color: #fff;
+  border: #e0e0de 0.05rem solid;
+}
+
+.secondary-card {
+  padding: 1rem;
+  background-color: #fff;
+  border-top: #e0e0de 0.1rem solid;
+}
+
+/* Shadow */
+.shadow {
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25),
+    1px 1px 1px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25),
+    1px 1px 1px rgba(0, 0, 0, 0.22);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25), 1px 1px 1px rgba(0, 0, 0, 0.22);
 }
 
 /* List */
@@ -418,4 +438,8 @@ table th {
 
 textarea {
   resize: none;
+}
+
+.admin-buttons {
+  margin-top: 2rem;
 }

@@ -45,11 +45,12 @@ const FoodItem = ({ food }) => {
     default:
       edibleIcon = <i className='fas fa-question' />;
   }
+
   return (
     <Link to='/current'>
-      <div className='card text-center' onClick={makeCurrent}>
+      <div className='card text-center p-1 shadow' onClick={makeCurrent}>
         {edibleIcon}
-        <h3 className='text-dark'>{foodName}</h3>
+        <h2 className='text-dark'>{foodName}</h2>
       </div>
     </Link>
   );
