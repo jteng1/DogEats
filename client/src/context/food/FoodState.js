@@ -30,7 +30,7 @@ const FoodState = props => {
   // Fetch all food data from database
   const fetchFoods = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/foods/');
+      const res = await axios.get('/api/foods');
 
       dispatch({ type: FETCH_FOODS, payload: res.data });
     } catch (err) {
@@ -52,11 +52,7 @@ const FoodState = props => {
     };
 
     try {
-      const res = await axios.post(
-        'http://localhost:5000/api/foods/add',
-        food,
-        config
-      );
+      const res = await axios.post('/api/foods/add', food, config);
 
       dispatch({ type: ADD_FOOD, payload: res.data });
     } catch (err) {
@@ -73,11 +69,7 @@ const FoodState = props => {
     };
 
     try {
-      const res = await axios.put(
-        `http://localhost:5000/api/foods/${food._id}`,
-        food,
-        config
-      );
+      const res = await axios.put(`/api/foods/${food._id}`, food, config);
 
       dispatch({ type: EDIT_FOOD, payload: res.data });
       console.log(res.data);
@@ -89,7 +81,7 @@ const FoodState = props => {
   // Delete a Food
   const deleteFood = async id => {
     try {
-      await axios.delete(`http://localhost:5000/api/foods/${id}`);
+      await axios.delete(`/api/foods/${id}`);
 
       dispatch({ type: DELETE_FOOD, payload: id });
       clearFilter();
