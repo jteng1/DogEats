@@ -22,7 +22,7 @@ const Current = props => {
     imgUrl: ''
   });
 
-  const { _id, foodName, edible, edibleDetails, foodDetails, imgUrl } = food;
+  const { _id, foodName, edible, edibleDetails, foodDetails } = food;
 
   let edibleIcon;
 

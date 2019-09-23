@@ -95,7 +95,7 @@ const Add = props => {
         <div className='form-group'>
           <label htmlFor='foodDetails'>Food Details</label>
           <textarea
-            rows='3'
+            rows='8'
             cols='25'
             type='text'
             placeholder='Information about the food...'

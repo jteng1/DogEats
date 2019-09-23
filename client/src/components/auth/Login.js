@@ -42,7 +42,7 @@ const Login = props => {
   };
 
   return (
-    <div className='form-container'>
+    <div className='form-container card shadow'>
       <h1>
         Account <span className='text-primary'>Login</span>
       </h1>

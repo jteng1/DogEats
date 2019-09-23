@@ -49,8 +49,8 @@ const FoodItem = ({ food }) => {
   return (
     <Link to='/current'>
       <div className='card text-center p-1 shadow' onClick={makeCurrent}>
+        <h2 className='text-primary m'>{foodName}</h2>
         {edibleIcon}
-        <h2 className='text-dark'>{foodName}</h2>
       </div>
     </Link>
   );

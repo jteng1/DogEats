@@ -16,7 +16,7 @@ const Navbar = ({ icon, title }) => {
   const authLinks = (
     <Fragment>
       <li>
-        <Link to='/'>Search Foods</Link>
+        <Link to='/'>Search</Link>
       </li>
       {admin ? (
         <li>
@@ -26,7 +26,7 @@ const Navbar = ({ icon, title }) => {
       <li>
         <a onClick={onLogout} href='#!'>
           <i className='fas fa-sign-out-alt' />
-          <span className='hide-sm'>Logout</span>
+          <span>Logout</span>
         </a>
       </li>
     </Fragment>
@@ -35,7 +35,7 @@ const Navbar = ({ icon, title }) => {
   const guestLinks = (
     <Fragment>
       <li>
-        <Link to='/'>Search Foods</Link>
+        <Link to='/'>Search</Link>
       </li>
       <li>
         <Link to='/register'>Register</Link>

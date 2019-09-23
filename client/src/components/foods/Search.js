@@ -42,7 +42,7 @@ const Search = () => {
   return (
     <div>
       {!admin ? (
-        <h2 className='large text-center'>Can Dogs Eat</h2>
+        <h2 className='large text-primary text-center'>Can Dogs Eat</h2>
       ) : (
         <h3>Number of Items: {numberOfItems}</h3>
       )}
