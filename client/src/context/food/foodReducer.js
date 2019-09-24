@@ -33,19 +33,24 @@ export default (state, action) => {
       return {
         ...state,
         numberOfItems: state.numberOfItems + 1,
-        loading: true
+        foods: [action.payload, ...state.foods],
+        loading: false
       };
     case EDIT_FOOD:
       return {
         ...state,
         filtered: null,
-        loading: true
+        foods: state.foods.map(food =>
+          food._id === action.payload._id ? action.payload : food
+        ),
+        loading: false
       };
     case DELETE_FOOD:
       return {
         ...state,
         numberOfItems: state.numberOfItems - 1,
-        loading: true
+        foods: state.foods.filter(food => food._id !== action.payload),
+        loading: false
       };
     case FOOD_ERROR:
       return {
