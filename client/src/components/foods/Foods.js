@@ -6,21 +6,11 @@ import Spinner from '../layout/Spinner';
 const Foods = () => {
   const foodContext = useContext(FoodContext);
 
-  const {
-    fetchFoods,
-    foods,
-    filtered,
-    loading,
-    setLoading,
-    clearFilter,
-    clearCurrent
-  } = foodContext;
+  const { foods, filtered, loading, clearFilter, clearCurrent } = foodContext;
 
   useEffect(() => {
     clearCurrent();
     clearFilter();
-    setLoading();
-    fetchFoods();
     // eslint-disable-next-line
   }, []);
 

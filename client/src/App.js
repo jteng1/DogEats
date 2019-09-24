@@ -25,7 +25,7 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-function App() {
+const App = () => {
   return (
     <AuthState>
       <FoodState>
@@ -52,6 +52,6 @@ function App() {
       </FoodState>
     </AuthState>
   );
-}
+};
 
 export default App;
