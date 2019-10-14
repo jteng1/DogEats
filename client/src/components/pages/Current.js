@@ -96,7 +96,7 @@ const Current = props => {
         <h2>No food selected</h2>
       ) : (
         <div>
-          <button className='btn btn-light btn-block' onClick={handleClick}>
+          <button className='btn btn-primary btn-block' onClick={handleClick}>
             Go Back
           </button>
           <div className='card text-center p-1 shadow'>

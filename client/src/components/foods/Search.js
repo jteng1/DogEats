@@ -53,7 +53,7 @@ const Search = () => {
         onChange={onChange}
         autoFocus
       />
-      <button className='btn btn-light btn-block' onClick={handleClick}>
+      <button className='btn btn-primary btn-block' onClick={handleClick}>
         Clear
       </button>
     </div>
