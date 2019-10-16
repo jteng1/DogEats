@@ -2,6 +2,10 @@
 
 This is an application that determines whether or not a food is edible for your dog. It is created with MongoDB, Express.js, React.js, and MongoDB.
 
+## Demo
+
+![Dog Eats Demo](demo/dogeats.gif)
+
 ## View the application
 
 Search dog foods at https://dog-eats.com/
